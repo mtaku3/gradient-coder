@@ -32,6 +32,7 @@ jobs:
     needs: fetchTags
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 1
       matrix:
         tag: ${{ fromJson(needs.fetchTags.outputs.tags) }}
     steps:
