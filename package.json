@@ -1,0 +1,16 @@
+{
+  "name": "gradient-coder-tag-fetcher",
+  "version": "1.0.0",
+  "description": "![.github/workflows/publish-docker-image.yaml](https://github.com/Paperspace/gradient-coder/workflows/.github/workflows/publish-docker-image.yaml/badge.svg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "docker-registry-client": "^3.4.0",
+    "semver": "^7.5.4"
+  }
+}
