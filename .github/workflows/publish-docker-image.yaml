@@ -50,4 +50,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ format("mtaku3/gradient-coder:{0}", matrix.tag) }}
+          tags: ${{ format('mtaku3/gradient-coder:{0}', matrix.tag) }}
