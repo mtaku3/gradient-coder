@@ -16,15 +16,17 @@ jobs:
         uses: actions/checkout@v3
       -
         id: setupNode
+        name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
           cache: npm
       -
-        if: ${{ steps.setupNode.outputs.cache-hit != 'true' }}
+        name: Install dependencies
         run: npm install
       -
         id: fetch
+        name: Fetch tags
         run: node fetch.js
   docker:
     needs: fetchTags
