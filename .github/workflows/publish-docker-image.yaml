@@ -56,3 +56,5 @@ jobs:
           context: .
           push: true
           tags: ${{ format('mtaku3/gradient-coder:{0}', matrix.tag) }}
+          build-args: |
+            "TAG=${{ matrix.tag }}"
