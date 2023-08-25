@@ -32,6 +32,7 @@ function fetchTags(repo) {
     try {
         const ourTags = (await fetchTags(OurRepo))["tags"];
         ourLatestTag = ourTags[0];
+        console.log("Latest tag: " + ourLatestTag)
     } catch {
         // ignore
     }
