@@ -22,17 +22,22 @@ function fetchTags(repo) {
     });
 }
 
+function filterAndSortTags(tags) {
+    const re = /^[0-9]+\.[0-9]+\.[0-9]+$/g;
+    tags = tags.filter(tag => re.test(tag));
+    tags = tags.sort(semver.rcompare);
+    return tags
+}
+
 (async () => {
     let baseTags = (await fetchTags(BaseRepo))["tags"];
-    const re = /^[0-9]+\.[0-9]+\.[0-9]+$/g;
-    baseTags = baseTags.filter(tag => re.test(tag));
-    baseTags = baseTags.sort(semver.rcompare);
+    baseTags = filterAndSortTags(baseTags);
 
     let ourLatestTag = "0.0.0";
     try {
-        const ourTags = (await fetchTags(OurRepo))["tags"];
+        let ourTags = (await fetchTags(OurRepo))["tags"];
+        ourTags = filterAndSortTags(ourTags);
         ourLatestTag = ourTags[0];
-        console.log("Latest tag: " + ourLatestTag)
     } catch {
         // ignore
     }
