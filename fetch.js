@@ -38,6 +38,7 @@ function filterAndSortTags(tags) {
         let ourTags = (await fetchTags(OurRepo))["tags"];
         ourTags = filterAndSortTags(ourTags);
         ourLatestTag = ourTags[0];
+        console.log(`Latest tag of ${OurRepo} is ${ourLatestTag}`)
     } catch {
         // ignore
     }
