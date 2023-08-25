@@ -30,6 +30,7 @@ jobs:
         run: node fetch.js
   docker:
     needs: fetchTags
+    if: ${{ needs.fetchTags.outputs.tags != '[]' }}
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 1
